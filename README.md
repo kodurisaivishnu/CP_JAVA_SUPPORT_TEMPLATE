@@ -7,7 +7,7 @@ This repository contains a Java template designed for Competitive Programming (C
 
 - **Fast Input/Output**: Efficiently handle large input and output data.
 - **Template Structure**: A ready-to-use structure for competitive programming problems.
-- **Easy to Use**: Just call the `solve_ksv` method to implement your logic.
+- **Easy to Use**: Just call the `solve_ksv` method to implement my logic you can customize for your requirements.
 
 ## How to Use
 
