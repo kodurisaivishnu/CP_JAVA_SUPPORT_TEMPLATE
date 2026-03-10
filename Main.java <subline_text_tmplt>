@@ -1,0 +1,106 @@
+import java.io.*;
+import java.util.*;
+
+public class Main implements Runnable {
+
+    static final boolean MULTI_TEST = true; // change to true if problem has t
+    static final boolean DEBUG = false;
+
+
+
+    /**********************************************--------> MAIN_LOGIC_START <--------**********************************************/
+
+
+    void solve() throws Exception {
+
+    }
+
+
+    /**********************************************-------> MAIN_LOGIC_END <-------**************************************************/
+
+
+
+
+
+    static final long MOD = 1_000_000_007L;
+
+    FastScanner sc;
+    PrintWriter out;
+
+    public static void main(String[] args) {
+        new Thread(null, new Main(), "cp", 1 << 26).start();
+    }
+    @Override
+    public void run() {
+        try {
+
+            InputStream is = System.in;
+            PrintStream ps = System.out;
+
+            try {
+                if (System.getProperty("ONLINE_JUDGE") == null) {
+
+                    String test = System.getenv("CPL_TEST");
+                    if (test == null) test = "1";
+
+                    String base = ".cpl_files/" + test;
+
+                    is = new FileInputStream(base + ".in.txt");
+                    ps = new PrintStream(base + ".tst.txt");
+                }
+            } catch (Exception e) {}
+
+            sc = new FastScanner(is);
+            out = new PrintWriter(new BufferedOutputStream(ps));
+
+            int t = 1;
+
+            if (MULTI_TEST) {
+                t = sc.nextInt();
+            }
+
+            while (t-- > 0) {
+                solve();
+            }
+
+            out.flush();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // -------------------- Fast Scanner --------------------
+    static final class FastScanner {
+        private final InputStream in;
+        private final byte[] buffer = new byte[1 << 16];
+        private int ptr = 0, len = 0;
+
+        FastScanner(InputStream is) { in = is; }
+
+        private int read() throws IOException {
+            if (ptr >= len) {
+                len = in.read(buffer);
+                ptr = 0;
+                if (len <= 0) return -1;
+            }
+            return buffer[ptr++];
+        }
+
+        private int skip() throws IOException {
+            int c;
+            while ((c = read()) <= 32) {
+                if (c == -1) return -1;
+            }
+            return c;
+        }
+
+        int nextInt() throws IOException {
+            int c = skip(), sgn = 1;
+            if (c == '-') { sgn = -1; c = read(); }
+            int val = 0;
+            while (c > 32) { val = val * 10 + (c - '0'); c = read(); }
+            return val * sgn;
+        }
+    }
+}
